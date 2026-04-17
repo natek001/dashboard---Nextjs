@@ -42,14 +42,33 @@ const Tasks = () => {
                   {task.title}
                 </h2>
                 <p>
-                  <span className="text-sm text-gray-600">
+                  <span className="text-sm text-gray-600 mt-2">
                     {task.description}
                   </span>
                 </p>
-                <p className="text-xs text-gray-500">
+                <p className="text-sm text-gray-600 mt-2">
                   Due Date: {task.dueDate}
                 </p>
               </div>
+
+              <section className="flex space-x-4">
+                <span
+                  className={`${task.status === "In Progress" ? "bg-yellow-100 text-yellow-800" : task.status === "Pending" ? "bg-red-100 text-red-800" : "bg-green-100 text-green-800"} text-xs font-bold px-3 py-3 rounded-full`}
+                >
+                  {task.status}
+                </span>
+                <button className="bg-blue-600 text-xs hover:bg-blue-800 text-white font-bold py-1.5 px-3 rounded-full cursor-pointer transition-colors ">
+                  Edit
+                </button>
+                {task.status !== "Completed" && (
+                  <button className="bg-green-600 text-xs hover:bg-green-800 text-white font-bold py-1.5 px-3 rounded-full cursor-pointer transition-colors ">
+                    Mark as Complete
+                  </button>
+                )}
+                <button className="bg-red-600 text-xs hover:bg-red-800 text-white font-bold py-1.5 px-3 rounded-full cursor-pointer transition-colors ">
+                  Delete
+                </button>
+              </section>
             </div>
           ))}
         </section>
