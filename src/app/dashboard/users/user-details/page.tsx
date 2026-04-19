@@ -48,6 +48,30 @@ const UserDetails = () => {
           <h2 className="font-semibold text-md mb-2 text-gray-600">
             Recent Activities
           </h2>
+
+          <ul>
+            {user.activities.map((activity) => (
+              <li key={activity.id} className="flex items-center space-x-4">
+                <div className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center">
+                  <span>A</span>
+                </div>
+                <div>
+                  <p className="text-gray-700">{activity.description}</p>
+                  <p className="text-gray-600 text-sm">{activity.timestamp}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+
+          {/* action settings */}
+          <div className="flex justify-end space-x-4 mt-4">
+            <button className="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              Cancel
+            </button>
+            <button className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              Save Changes
+            </button>
+          </div>
         </div>
       </div>
     </div>
